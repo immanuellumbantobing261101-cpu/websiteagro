@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT Palmaka Agro Sejahtera - Perkebunan Berkelanjutan</title>
+  
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* RESET & VARIABLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    :root {
+      --primary-color: #1E6B27;
+      --primary-dark: #124518;
+      --secondary-color: #8BC34A;
+      --accent-color: #F59E0B;
+      --dark-color: #0F172A;
+      --light-bg: #F8FAFC;
+      --white: #FFFFFF;
+      --gray-text: #64748B;
+      --border-color: #E2E8F0;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--dark-color);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER & NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      z-index: 1000;
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .logo-container a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--gray-text);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark-color);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(30, 107, 39, 0.25);
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 107, 39, 0.35);
+    }
+
+    /* HERO SLIDER SECTION */
+    .hero-slider {
+      position: relative;
+      height: 88vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 20px;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.5) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 35px;
+      color: #F1F5F9;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--primary-color);
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 1.2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-arrow:hover {
+      background: var(--white);
+      color: var(--primary-color);
+    }
+
+    .prev-arrow { left: 30px; }
+    .next-arrow { right: 30px; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dot.active {
+      background: var(--white);
+      width: 32px;
+      border-radius: 10px;
+    }
+
+    /* STATS SECTION */
+    .stats-section {
+      background: var(--white);
+      padding: 40px 8%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      margin-top: -40px;
+      position: relative;
+      z-index: 100;
+      border-radius: 16px;
+      max-width: 84%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--border-color);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .stat-item p {
+      color: var(--gray-text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title p {
+      color: var(--gray-text);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    /* TENTANG KAMI */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      position: relative;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      object-fit: cover;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 20px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(30, 107, 39, 0.3);
+      text-align: center;
+    }
+
+    .about-badge span {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--dark-color);
+      font-weight: 800;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--gray-text);
+      font-size: 1.05rem;
+    }
+
+    /* GALERI FASILITAS */
+    .facility-gallery {
+      background: var(--white);
+      padding: 80px 8%;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .facility-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .facility-title h3 {
+      font-size: 1.8rem;
+      color: var(--dark-color);
+      font-weight: 800;
+    }
+
+    .image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .image-item {
+      display: flex;
+      flex-direction: column;
+      background: var(--light-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .image-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .image-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .image-item p {
+      padding: 15px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark-color);
+    }
+
+    /* LAYANAN */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: #E8F5E9;
+      color: var(--primary-color);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      color: var(--dark-color);
+      font-weight: 700;
+    }
+
+    .service-card p {
+      color: var(--gray-text);
+      font-size: 0.98rem;
+    }
+
+    .click-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* KONTAK */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      background: var(--white);
+      padding: 50px;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      color: var(--dark-color);
+      font-weight: 700;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 22px;
+      color: var(--gray-text);
+    }
+
+    .contact-item i {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      background: #E8F5E9;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 2px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      outline: none;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--light-bg);
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--primary-color);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(30, 107, 39, 0.1);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(30, 107, 39, 0.2);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30, 107, 39, 0.3);
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      color: white;
+    }
+
+    /* MODAL (POP-UP) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(15, 23, 42, 0.6);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      border-radius: 24px;
+      max-width: 650px;
+      width: 100%;
+      padding: 40px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--gray-text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-btn:hover {
+      color: var(--dark-color);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .modal-header i {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+    }
+
+    .modal-header h3 {
+      font-size: 1.5rem;
+      color: var(--dark-color);
+      font-weight: 700;
+    }
+
+    .modal-body p {
+      color: var(--gray-text);
+      margin-bottom: 18px;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .modal-body ul li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--dark-color);
+    }
+
+    .modal-body ul li i {
+      color: var(--primary-color);
+      margin-top: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-color);
+      color: var(--white);
+      padding: 70px 8% 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul a {
+      color: #94A3B8;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #334155;
+      color: #94A3B8;
+      font-size: 0.88rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .about-container, .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stats-section {
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+      }
+      nav {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      section {
+        padding: 60px 5%;
+      }
+      .about-badge {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 15px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="logo-container">
+      <a href="#home">
+        <img src="https://uploads.onecompiler.io/4537q2adf/1789371707918/logo.png" alt="Logo PT PAS">
+        <div class="brand-name">
+          PT. PAS
+          <span>PALMAKA AGRO SEJAHTERA</span>
+        </div>
+      </a>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#contact">Kontak</a></li>
+        <li><a href="https://www.linkedin.com/company/pt-palmaka-agro-sejahtera/jobs/" target="_blank">Karir</a></li>
+      </ul>
+    </nav>
+
+    <a href="https://wa.me/qr/LYKCWP5XPNQEO1?s=v" target="_blank" class="btn-contact">
+      <i class="fa-brands fa-whatsapp"></i> Hubungi Kami
+    </a>
+  </header>
+
+  <!-- HERO SLIDER SECTION -->
+  <section class="hero-slider" id="home">
+    <div class="slide active" style="background-image: url('https://uploads.onecompiler.io/4537q2adf/4537uwks6/palmaka.png');">
+      <div class="hero-content">
+        <h1>Pabrik Kelapa Sawit Berkelanjutan & Terpercaya</h1>
+        <p>Mengelola Sumber Daya Alam Secara Profesional Dengan Memadukan Inovasi Modern Demi Masa Depan Yang Lebih Hijau dan Sejahtera.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn-contact">Layanan Kami</a>
+          <a href="#about" class="btn-secondary">Tentang Perusahaan</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80');">
+      <div class="hero-content">
+        <h1>Manajemen Perkebunan Presisi</h1>
+        <p>Penerapan teknologi inovatif untuk efisiensi produksi panen Tandan Buah Segar (TBS) berkualitas unggul.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn-contact">Jelajahi Solusi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('https://uploads.onecompiler.io/4537q2adf/4537uwks6/palamaka2.png');">
+      <div class="hero-content">
+        <h1>Kemitraan Petani & Lingkungan</h1>
+        <p>Memberdayakan komunitas lokal melalui program pembinaan dan komitmen kelestarian ekosistem.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-contact">Hubungi Kami</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="slider-arrow prev-arrow" onclick="changeSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="slider-arrow next-arrow" onclick="changeSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <div class="slider-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+  </section>
+
+ <!-- STATS COUNTER (Compact Design) -->
+<div class="stats-section stats-compact">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+      <p class="stat-label">Standar Mutu</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter" data-target="200">0</span>Ton</div>
+      <p class="stat-label">Cpo Storage </p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter" data-target="60">0</span></div>
+      <p class="stat-label">Ton/Jam Kapasitas</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter" data-target="24">0</span>/7</div>
+      <p class="stat-label">Dukungan Layanan PKS</p>
+    </div>
+  </div>
+</div>
+
+<!-- STYLE CSS UNTUK UKURAN LEBIH KECIL/RINGKAS -->
+<style>
+.stats-compact {
+  padding: 20px 15px; /* Mengurangi padding luar dari seksi */
+  background: var(--light-bg, #F8FAFC);
+  border-radius: 12px;
+}
+
+.stats-compact .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Kolom lebih rapat */
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stats-compact .stat-item {
+  text-align: center;
+  padding: 10px 8px; /* Padding item diperkecil */
+}
+
+.stats-compact .stat-number {
+  font-size: 1.6rem; /* Ukuran angka diperkecil (sebelumnya h3 sekitar 2.5rem+) */
+  font-weight: 800;
+  color: var(--primary-color, #1E6B27);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.stats-compact .stat-label {
+  font-size: 0.8rem; /* Ukuran teks deskripsi diperkecil */
+  color: var(--gray-text, #64748B);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+</style>
+
+  <!-- TENTANG KAMI -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-img">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/kernel.png" alt="Perkebunan Sawit Modern">
+        <div class="about-badge">
+          <span>100%</span>
+          <small>Standar Mutu</small>
+        </div>
+      </div>
+      <div class="about-text">
+
+        
+    <!-- Teks Profil -->
+    <div class="about-text-content">
+      <span style="background: #E8F5E9; color: #1E6B27; padding: 6px 14px; border-radius: 30px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Tentang Perusahaan</span>
+      <h2 style="font-size: 2.1rem; color: #0F172A; margin: 12px 0 18px; font-weight: 800; line-height: 1.2;">PT. PALMAKA AGRO SEJAHTERA</h2>
+      
+      <p style="color: #475569; font-size: 0.98rem; line-height: 1.7; margin-bottom: 15px;">
+        <strong>PT Palmaka Agro Sejahtera (PAS)</strong> adalah perusahaan agribisnis terpadu yang berfokus pada pengolahan kelapa sawit secara profesional, efisien, dan ramah lingkungan. Operasional utama kami berpusat pada pengolahan Tandan Buah Segar (TBS) menjadi <em>Crude Palm Oil</em> (CPO) dan <em>Palm Kernel Oil</em> (PKO) berstandar mutu tinggi.
+      </p>
+
+      <p style="color: #475569; font-size: 0.98rem; line-height: 1.7; margin-bottom: 25px;">
+        Berlokasi strategis di Kecamatan Talisayan, Kabupaten Berau, Kalimantan Timur, kami menggabungkan teknologi pabrik modern dengan komitmen pemberdayaan masyarakat dan penerapan standar kelestarian lingkungan secara konsisten.
+      </p>
+
+      <!-- Poin Keunggulan -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; color: #0F172A;">
+          <i class="fa-solid fa-check-circle" style="color: #1E6B27;"></i> Pengolahan CPO & PKO Modern
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; color: #0F172A;">
+          <i class="fa-solid fa-check-circle" style="color: #1E6B27;"></i> Kemitraan Petani Swadaya
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; color: #0F172A;">
+          <i class="fa-solid fa-check-circle" style="color: #1E6B27;"></i> Standar Mutu & ISPO
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; color: #0F172A;">
+          <i class="fa-solid fa-check-circle" style="color: #1E6B27;"></i> Pengolahan Limbah Terpadu
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-contact" style="display: inline-block; background: #1E6B27; color: white; padding: 12px 28px; border-radius: 50px; font-weight: 700; text-decoration: none;">Selengkapnya</a>
+    </div>
+
+  </div>
+</section>
+    <!-- GRID 2: VISI, MISI, & CORE VALUES -->
+    <div class="vmv-grid">
+      <!-- Visi & Misi -->
+      <div class="vm-card">
+        <div class="vm-header">
+          <i class="fa-solid fa-eye"></i>
+          <h3>Visi Perusahaan</h3>
+        </div>
+        <p class="visi-text">
+          Menjadi perusahaan pengolahan kelapa sawit terdepan yang terpercaya, berdaya saing global, serta menjadi teladan dalam penerapan praktik agribisnis berkelanjutan dan berwawasan lingkungan.
+        </p>
+
+        <div class="vm-header" style="margin-top: 25px;">
+          <i class="fa-solid fa-bullseye"></i>
+          <h3>Misi Perusahaan</h3>
+        </div>
+        <ul class="misi-list">
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Mengutamakan Kualitas Produk:</strong> Menghasilkan CPO dan PKO bermutu tinggi secara konsisten melalui penerapan teknologi ekstraksi modern serta pengawasan mutu ketat di laboratorium.</div>
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Pengelolaan Ramah Lingkungan:</strong> Menerapkan prinsip keberlanjutan (termasuk standar ISPO) dengan mengoptimalkan pengelolaan limbah industri (POME) serta konservasi tanah dan air.</div>
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Pemberdayaan Petani & Komunitas:</strong> Membangun kemitraan yang saling menguntungkan dengan petani swadaya sekitar melalui pendampingan teknik agronomi dan transparansi harga.</div>
+          </li>
+          <li>
+            <i class="fa-solid fa-check"></i>
+            <div><strong>Efisiensi & Inovasi Operasional:</strong> Meningkatkan kapasitas produksi dan keselamatan kerja secara berkelanjutan demi memberikan nilai tambah maksimal bagi para pemangku kepentingan (stakeholders).</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Core Values -->
+      <div class="values-card">
+        <div class="vm-header">
+          <i class="fa-solid fa-gem"></i>
+          <h3>Nilai-Nilai Utama (Core Values)</h3>
+        </div>
+        <div class="value-item">
+          <div class="value-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="value-content">
+            <h4>Professionalism (Profesionalisme)</h4>
+            <p>Mengedepankan standar kerja tinggi, integritas, dan tanggung jawab di seluruh tingkatan operasional.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div class="value-content">
+            <h4>Accountability (Akuntabilitas)</h4>
+            <p>Memastikan transparansi dalam pengelolaan usaha, tata kelola lingkungan, serta kemitraan bisnis.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="value-content">
+            <h4>Sustainability (Keberlanjutan)</h4>
+            <p>Berkomitmen menjaga kelestarian lingkungan dan kesejahteraan sosial masyarakat sekitar wilayah operasional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- STYLING CSS -->
+<style>
+/* Reset Box Sizing Khusus Seksi Ini */
+.about-history-section,
+.about-history-section * {
+  box-sizing: border-box;
+}
+
+/* Base Style Seksi Utama */
+.about-history-section {
+  padding: 80px 8%;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Helper Text Formatting */
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #E8F5E9;
+  color: #1E6B27;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-size: 2.2rem;
+  color: #0F172A;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.section-subheading {
+  font-size: 1.1rem;
+  color: #1E6B27;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+/* Grid Layout Profil */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-img-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.about-img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  object-fit: cover;
+  display: block;
+}
+
+.about-experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: #1E6B27;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(30, 107, 39, 0.3);
+}
+
+.about-experience-badge i {
+  font-size: 2rem;
+}
+
+.about-experience-badge strong {
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.about-experience-badge span {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.about-paragraph {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+/* Grid Layout Visi, Misi & Values */
+.vmv-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+}
+
+.vm-card, .values-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.vm-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.vm-header i {
+  width: 40px;
+  height: 40px;
+  background: #E8F5E9;
+  color: #1E6B27;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.vm-header h3 {
+  font-size: 1.25rem;
+  color: #0F172A;
+  font-weight: 700;
+  margin: 0;
+}
+
+.visi-text {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 14px;
+  border-left: 3px solid #1E6B27;
+  margin: 0;
+}
+
+.misi-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.misi-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 12px;
+  line-height: 1.55;
+}
+
+.misi-list li:last-child {
+  margin-bottom: 0;
+}
+
+.misi-list li i {
+  color: #1E6B27;
+  background: #E8F5E9;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Core Values Items */
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.value-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.value-icon {
+  width: 44px;
+  height: 44px;
+  background: #1E6B27;
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.value-content h4 {
+  font-size: 1rem;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.value-content p {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Tampilan Responsif (Mobile & Tablet) */
+@media (max-width: 992px) {
+  .about-grid, .vmv-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-experience-badge {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin-top: 15px;
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-history-section {
+    padding: 50px 5%;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+}
+</style>
+
+  <!-- GALERI FASILITAS OPERASIONAL -->
+  <div class="facility-gallery">
+    <div class="facility-title">
+      <h3>Fasilitas & Area Operasional Pabrik</h3>
+    </div>
+    <div class="image-container">
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/tresing.png" alt="Pabrik Utama">
+        <p>Pabrik Utama</p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/storage%20tank.png" alt="Area Pengolahan">
+        <p>Storage Tank </p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/areal%20utama%20pabrik%20.png" alt="Area Utama Pabrik">
+        <p>Area Utama Pabrik</p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/pabrik%20PT%20PAS.jpg" alt="Kantor Operasional">
+        <p>Kantor Operasional</p>
+        
+        
+      </div>
+    </div>
+    <div class="image-container">
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/PT%20PAS.webp" alt="Pabrik Utama">
+        <p>Pabrik Utama</p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/storage%20tank.png" alt="Area Pengolahan">
+        <p>Storage Tank </p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/areal%20utama%20pabrik%20.png" alt="Area Utama Pabrik">
+        <p>Area Utama Pabrik</p>
+      </div>
+      <div class="image-item">
+        <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/pabrik%20PT%20PAS.jpg" alt="Kantor Operasional">
+        <p>Kantor Operasional</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYANAN / UNGGULAN -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Layanan & Produk Utama</h2>
+      <p>Solusi Lengkap Dalam Ekosistem Agribisnis Kelapa Sawit Yang Berstandar Internasional.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" onclick="openModal('perkebunanModal')">
+        <div class="service-icon"><i class="fa-solid fa-tree"></i></div>
+        <h3>Pengelolaan Perkebunan</h3>
+        <p>Tata kelola lahan sawit berkelanjutan dengan sistem precision farming untuk menghasilkan TBS (Tandan Buah Segar) berkualitas unggul.</p>
+        <span class="click-hint">Klik untuk detail <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <div class="service-card" onclick="openModal('cpoModal')">
+        <div class="service-icon"><i class="fa-solid fa-industry"></i></div>
+        <h3>Pengolahan CPO & PKO</h3>
+        <p>Fasilitas pabrik modern yang mengolah hasil panen menjadi Crude Palm Oil dan Palm Kernel Oil berstandar mutu tinggi.</p>
+        <span class="click-hint">Klik untuk detail <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <div class="service-card" onclick="openModal('kemitraanModal')">
+        <div class="service-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+        <h3>Kemitraan Petani</h3>
+        <p>Program pemberdayaan dan pembinaan petani lokal guna meningkatkan hasil panen dan kesejahteraan ekonomi daerah.</p>
+        <span class="click-hint">Klik untuk detail <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div>
+  </section>
+
+ <!-- MODAL / POP-UP DETAIL PENGELOLAAN PERKEBUNAN -->
+<div class="modal" id="perkebunanModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('perkebunanModal')">&times;</span>
+    
+    <!-- Gambar Header Modal -->
+    <div class="modal-banner">
+      <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80" alt="Perkebunan Sawit Berkelanjutan">
+      <div class="modal-banner-overlay">
+        <span class="modal-badge"><i class="fa-solid fa-leaf"></i> Praktek Berkelanjutan</span>
+      </div>
+    </div>
+
+    <!-- Header Judul -->
+    <div class="modal-header">
+      <i class="fa-solid fa-tree"></i>
+      <div>
+        <h3>Pengelolaan Perkebunan Berkelanjutan</h3>
+        <span class="modal-subtitle">PT. Palmaka Agro Sejahtera</span>
+      </div>
+    </div>
+    
+    <!-- Isi / Body Modal -->
+    <div class="modal-body">
+      <!-- Sekilas Tentang Perusahaan dalam Pengelolaan Perkebunan -->
+      <div class="modal-about-box">
+        <h4><i class="fa-solid fa-building"></i> Komitmen Perusahaan</h4>
+        <p>
+          Sebagai bagian dari komitmen operasional, <strong>PT. Palmaka Agro Sejahtera</strong> memadukan teknologi perkebunan modern dengan prinsip keberlanjutan lingkungan. Kami mengelola lahan pertanian secara presisi guna menghasilkan Tandan Buah Segar (TBS) berkualit tinggi sekaligus menjaga keseimbangan ekosistem di wilayah Dumaring, Berau.
+        </p>
+      </div>
+
+      <h4 class="section-subheading">Pilar & Keunggulan Operasional</h4>
+      <ul class="modal-feature-list">
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Sistem Agronomi Presisi:</strong> 
+            Pemupukan terukur dan analisis hara berbasis data kondisi tanah serta spesifikasi tanaman secara berkala.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Manajemen Hama Terpadu (PBT):</strong> 
+            Mengutamakan pengendalian hama biologis (seperti pemanfaatan burung hantu & tanaman bermanfaat) untuk meminimalkan bahan kimia.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Konservasi Air & Topsoil:</strong> 
+            Pembuatan rorak, terasering, serta piringan mulsa organik guna menjaga kelembaban tanah dan mencegah erosi.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Sertifikasi & Kepatuhan Lingkungan:</strong> 
+            Penerapan standar ISPO/RSPO demi memastikan kelestarian kawasan sekitar perkebunan.
+          </div>
+        </li>
+      </ul>
+
+      <!-- Tombol Aksi -->
+      <div class="modal-footer-actions">
+        <a href="#contact" class="btn-contact" onclick="closeModal('perkebunanModal')">
+          <i class="fa-solid fa-comments"></i> Konsultasi Layanan
+        </a>
+        <button type="button" class="btn-secondary-modal" onclick="closeModal('perkebunanModal')">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tambahkan Style CSS Berikut di Tag <style> Anda -->
+<style>
+/* Penyesuaian Modal Content agar Lebih Rapi dengan Gambar */
+.modal-content {
+  padding: 0 !important; /* Reset padding agar gambar header pas di tepi */
+  overflow: hidden;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Banner Gambar di Bagian Atas Modal */
+.modal-banner {
+  position: relative;
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modal-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-banner-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(15,23,42,0.6) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 15px 25px;
+}
+
+.modal-badge {
+  background: rgba(30, 107, 39, 0.9);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+}
+
+/* Header Modal */
+.modal-header {
+  padding: 20px 30px 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.modal-header i {
+  font-size: 1.6rem;
+  color: var(--primary-color, #1E6B27);
+  background: #E8F5E9;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-header h3 {
+  font-size: 1.35rem;
+  color: var(--dark-color, #0F172A);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: 0.82rem;
+  color: var(--gray-text, #64748B);
+  font-weight: 600;
+}
+
+/* Body Modal (Scrollable jika terlalu panjang) */
+.modal-body {
+  padding: 20px 30px 30px;
+  overflow-y: auto;
+}
+
+/* Box Informasi Perusahaan */
+.modal-about-box {
+  background-color: var(--light-bg, #F8FAFC);
+  border-left: 4px solid var(--primary-color, #1E6B27);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+}
+
+.modal-about-box h4 {
+  font-size: 0.95rem;
+  color: var(--primary-color, #1E6B27);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-about-box p {
+  font-size: 0.9rem;
+  color: var(--gray-text, #475569);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.section-subheading {
+  font-size: 1rem;
+  color: var(--dark-color, #0F172A);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Daftar Fitur / Poin */
+.modal-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.modal-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: var(--dark-color, #334155);
+}
+
+.modal-feature-list li i {
+  color: var(--primary-color, #1E6B27);
+  margin-top: 3px;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Tombol Aksi Footer */
+.modal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  padding-top: 20px;
+}
+
+.btn-secondary-modal {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+  padding: 11px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-modal:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* Tombol Close (X) */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+</style>
+
+<!-- MODAL / POP-UP CPO & PKO -->
+<div class="modal" id="cpoModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('cpoModal')">&times;</span>
+    
+    <!-- Gambar Header Banner Pabrik CPO -->
+    <div class="modal-banner">
+      <img src="https://uploads.onecompiler.io/4537q2adf/4537uwks6/pabrikpt.jpg" alt="Pabrik Pengolahan CPO PT PAS">
+      <div class="modal-banner-overlay">
+        <span class="modal-badge"><i class="fa-solid fa-gears"></i> Pengolahan Industri Modern</span>
+      </div>
+    </div>
+
+    <!-- Header Judul Modal -->
+    <div class="modal-header">
+      <i class="fa-solid fa-industry"></i>
+      <div>
+        <h3>Pengolahan CPO & PKO</h3>
+        <span class="modal-subtitle">PT. Palmaka Agro Sejahtera</span>
+      </div>
+    </div>
+    
+    <!-- Isi / Body Modal -->
+    <div class="modal-body">
+      <!-- Sekilas Tentang Perusahaan dalam Pengolahan CPO -->
+      <div class="modal-about-box">
+        <h4><i class="fa-solid fa-building"></i> Komitmen Industri & Kualitas</h4>
+        <p>
+          Melalui fasilitas PKS (Pabrik Kelapa Sawit) modern di Dumaring, Berau, <strong>PT. Palmaka Agro Sejahtera</strong> mengolah Tandan Buah Segar (TBS) menjadi <em>Crude Palm Oil</em> (CPO) dan <em>Palm Kernel Oil</em> (PKO) berstandar mutu tinggi. Kami menerapkan kontrol kualitas ketat dari penerimaan buah hingga pengiriman hasil olahan.
+        </p>
+      </div>
+
+      <!-- Ringkasan Produk & Keunggulan Industri -->
+      <h4 class="section-subheading">Spesifikasi & Keunggulan Olahan</h4>
+      <ul class="modal-feature-list">
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Ekstraksi Efisiensi Tinggi:</strong> 
+            Proses perebusan (sterilisasi) dan pengepresan presisi untuk menghasilkan CPO dengan kadar asam lemak bebas (FFA) rendah dan *oil losses* minimal.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Pembersihan & Pemisahan Inti (Kernel):</strong> 
+            Pengolahan *Palm Kernel* berkualitas murni untuk konsistensi pasokan bahan baku industri turunan/oleokimia.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Fasilitas Penyimpanan Bulking Tank:</strong> 
+            Tangki simpan berkapasitas besar dengan kontrol suhu dan kebersihan terjaga guna menjaga stabilitas mutu minyak.
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-check"></i> 
+          <div>
+            <strong>Pengolahan Limbah Terpadu (POME):</strong> 
+            Sistem kolam limbah cair terintegrasi yang ramah lingkungan dan siap dimanfaatkan untuk pupuk organik serta energi ramah lingkungan.
+          </div>
+        </li>
+      </ul>
+
+      <!-- Tombol Aksi -->
+      <div class="modal-footer-actions">
+        <a href="#contact" class="btn-contact" onclick="closeModal('cpoModal')">
+          <i class="fa-solid fa-comments"></i> Konsultasi Layanan
+        </a>
+        <button type="button" class="btn-secondary-modal" onclick="closeModal('cpoModal')">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- MODAL / POP-UP KEMITRAAN -->
+  <div class="modal" id="kemitraanModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('kemitraanModal')">&times;</span>
+      <div class="modal-header">
+        <i class="fa-solid fa-handshake-angle"></i>
+        <h3>Kemitraan Petani Swadaya</h3>
+      </div>
+      <div class="modal-body">
+        <p>Kami percaya bahwa tumbuh bersama masyarakat adalah kunci keberlanjutan agribisnis jangka panjang.</p>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Pelatihan Agronomi:</strong> Edukasi perawatan dan pemanenan standar industri.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Pembelian TBS Transparan:</strong> Penentuan harga adil sesuai regulasi pemerintah.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Pendampingan Sertifikasi:</strong> Membantu kelompok tani meraih sertifikasi keberlanjutan.</li>
+        </ul>
+        <a href="#contact" class="btn-contact" onclick="closeModal('kemitraanModal')">Konsultasi Layanan</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONTAK -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Hubungi Kami</h2>
+      <p>Siap berkolaborasi atau ingin mengetahui lebih lanjut mengenai operasional kami?</p>
+    </div>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Kantor Pusat</h3>
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Alamat:</strong><br>
+            Tokopedia Care Tower, Lt 18, Jl.Lingkar Luar Barat Blok A No.1, Desa/Kelurahan Rawa Buaya, 
+Kec. Cengkareng, Kota Adm. Jakarta Barat, Provinsi DKI Jakarta.
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email:</strong><br>
+            info@palmakaagrosejahtera.com
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Telp:</strong><br>
+            (+62) 815-4121-8107
+          </div>
+        </div>
+
+        <div style="margin-top: 25px;">
+          <h3>Lokasi Kantor Pusat</h3>
+          <iframe
+            src="https://www.google.com/maps?q=Tokopedia+Tower+Jakarta&output=embed"
+            width="100%"
+            height="200"
+            style="border:0; border-radius:12px; margin-top: 10px;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Pesan Anda telah terkirim!');">
+          <div class="form-group">
+            <input type="text" placeholder="Nama Lengkap" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Anda" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/qr/LYKCWP5XPNQEO1?s=v" target="_blank" class="whatsapp-float" title="Chat Via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>PT. PALMAKA AGRO SEJAHTERA</h4>
+        <p style="color: #94A3B8; font-size: 0.9rem;">Perusahaan Pengolahan Minyak Kelapa Sawit Terpadu Yang Berkomitmen Pada Kualitas dan Keberlanjutan Lingkungan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sosial Media</h4>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/company/pt-palmaka-agro-sejahtera/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+          </li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PT. Palmaka Agro Sejahtera. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT UNTUK INTERAKTIVITAS -->
+  <script>
+    /* MODAL POP-UP */
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+
+    /* SLIDER NAVIGASI */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function showSlide(index) {
+      if (index >= slides.length) slideIndex = 0;
+      if (index < 0) slideIndex = slides.length - 1;
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      slides[slideIndex].classList.add('active');
+      dots[slideIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+      slideIndex++;
+      showSlide(slideIndex);
+    }
+
+    function changeSlide(direction) {
+      clearInterval(slideInterval);
+      slideIndex += direction;
+      showSlide(slideIndex);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function currentSlide(index) {
+      clearInterval(slideInterval);
+      slideIndex = index;
+      showSlide(slideIndex);
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    /* ANIMASI COUNTER ANGKA STATISTIK */
+    const counters = document.querySelectorAll('.counter');
+    let hasAnimated = false;
+
+    window.addEventListener('scroll', () => {
+      const statsSection = document.querySelector('.stats-section');
+      if (!statsSection) return;
+      
+      const sectionPos = statsSection.getBoundingClientRect().top;
+      const screenPos = window.innerHeight / 1.3;
+
+      if (sectionPos < screenPos && !hasAnimated) {
+        hasAnimated = true;
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const speed = 200;
+          const updateCount = () => {
+            const count = +counter.innerText;
+            const inc = Math.ceil(target / speed);
+            if (count < target) {
+              counter.innerText = count + inc;
+              setTimeout(updateCount, 25);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
